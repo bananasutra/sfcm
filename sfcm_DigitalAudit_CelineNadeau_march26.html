@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SFCM Digital Audit — Céline Nadeau</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary:   #9c2140;   /* burgundy — cover rule, H2, badges, callout borders */
+    --secondary: #1e4a72;   /* navy — links only */
+    --charcoal:  #3a3a3a;   /* dark grey — non-link secondary text */
+    --gold:      #f1c44a;   /* gold — hairline rules, framework callout border */
+    --text:      #000000;   /* body copy */
+    --muted:     #5c5c5c;   /* secondary meta */
+    --border:    #d1d3d4;   /* table lines, section rule */
+    --surface:   #f1f2f2;   /* table headers, finding backgrounds */
+    --bg:        #ffffff;
+    /* Semantic aliases kept for badge/score colours */
+    --green: #1d6b42;
+    --red:   #7a2020;
+    --blue:  #1a3f7a;
+    --yellow: #6a5a18;
+  }
+
+  html { font-size: 10.5pt; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    /* subtle staggered dot texture */
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(138,148,173,0.10) 0.85px, transparent 1.1px),
+      radial-gradient(circle at 50% 50%, rgba(138,148,173,0.10) 0.85px, transparent 1.1px);
+    background-size: 14px 24px, 14px 24px;
+    background-position: 0 0, 7px 12px;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 52px;
+    line-height: 1.55;
+  }
+
+  /* ── COVER (aligned with resume / cover letter header band) ── */
+  .cover {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+  }
+
+  .cover-eyebrow {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .cover h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 5px;
+  }
+
+  .cover-sub {
+    font-size: 10pt;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    font-style: italic;
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.45;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 28px;
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+
+  .cover-meta span strong { color: var(--text); font-weight: 600; }
+
+  /* ── SECTION HEADERS ── */
+  h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 44px;
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-intro {
+    font-size: 9.5pt;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-top: 2px;
+  }
+
+  h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 10pt;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.65;
+  }
+
+  /* ── FRAMEWORK INTRO CALLOUT ── */
+  .framework-callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin: 0 0 28px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .framework-callout p {
+    margin: 0;
+    font-size: 10pt;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .framework-callout strong { color: var(--text); font-style: normal; }
+
+  /* ── FUNNEL TABLE ── */
+  .funnel-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 32px;
+    font-size: 9.5pt;
+  }
+
+  .funnel-table th {
+    text-align: left;
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 14px;
+    border-bottom: 2px solid var(--border);
+    background: var(--surface);
+  }
+
+  .funnel-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .funnel-table tr:last-child td { border-bottom: none; }
+
+  .funnel-table td:first-child {
+    font-weight: 600;
+    color: var(--text);
+    width: 120px;
+    min-width: 100px;
+  }
+
+  .funnel-table td strong { color: var(--text); font-weight: 600; }
+
+  /* ── GOAL PILLS ── */
+  .goal-pill {
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .goal-recruit  { background: #e8eef5; color: var(--secondary); border: 1px solid #b8ccd8; }
+  .goal-revenue  { background: #fdf6e8; color: var(--yellow);    border: 1px solid #e8d090; }
+  .goal-engage   { background: #eaf5f0; color: var(--green);     border: 1px solid #a8d8c0; }
+  .goal-retain   { background: #f8f0fb; color: #5a2a8b; border: 1px solid #d0a8e8; }
+
+  /* ── STAGE SCORES ── */
+  .stage-score {
+    display: inline-block;
+    width: 52px;
+    font-size: 7.5pt;
+    font-weight: 600;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 2px;
+    margin-right: 6px;
+  }
+
+  .score-strong { background: #eaf5f0; color: var(--green); border: 1px solid #a8d8c0; }
+  .score-ok     { background: #fdf6e8; color: var(--yellow); border: 1px solid #e8d090; }
+  .score-weak   { background: #fdf0f0; color: var(--red); border: 1px solid #e8b8b8; }
+
+  /* ── FINDING ROWS ── */
+  .finding {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 18px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .finding:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .finding-status { padding-top: 2px; }
+
+  .badge {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .badge.issue       { background: #fdf0f0; color: var(--red);       border: 1px solid #e8b8b8; }
+  .badge.ok          { background: #eaf5f0; color: var(--green);     border: 1px solid #a8d8c0; }
+  .badge.opportunity { background: #e8eef5; color: var(--secondary); border: 1px solid #b8ccd8; }
+  .badge.note        { background: #fdf6e8; color: var(--yellow);    border: 1px solid #e8d090; }
+
+  .finding-body h4 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .finding-body p { font-size: 9.5pt; margin-bottom: 0; }
+
+  .rec {
+    font-size: 9pt;
+    color: var(--charcoal);
+    margin-top: 6px;
+    padding-left: 12px;
+    border-left: 2px solid var(--secondary);
+    font-style: italic;
+  }
+
+  /* ── PRIORITY TABLE ── */
+  .priority-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 9.5pt;
+  }
+
+  .priority-table th {
+    text-align: left;
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+    background: var(--surface);
+  }
+
+  .priority-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  .priority-table tr:last-child td { border-bottom: none; }
+
+  .p1 { color: var(--red);       font-weight: 600; white-space: nowrap; }
+  .p2 { color: var(--yellow);    font-weight: 600; white-space: nowrap; }
+  .p3 { color: var(--secondary); font-weight: 600; white-space: nowrap; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: #e8eef5;
+    border-left: 4px solid var(--secondary);
+    padding: 14px 18px;
+    margin: 18px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout p {
+    font-size: 10pt;
+    color: var(--charcoal);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    margin: 0 0 8px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .toc-label {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .toc ol {
+    padding-left: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 32px;
+  }
+
+  .toc li {
+    font-size: 9.5pt;
+    margin-bottom: 7px;
+    break-inside: avoid;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .toc-num {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--muted);
+    min-width: 18px;
+  }
+
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc a:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .doc-footer a { color: var(--secondary); text-decoration: underline; }
+  .doc-footer a[href^="tel:"] { white-space: nowrap; }
+
+  /* ── FUNNEL GAP ROWS ── */
+  .funnel-gap-row td {
+    background: var(--surface);
+    font-size: 9pt;
+    color: var(--muted);
+    padding: 7px 14px 10px;
+    border-bottom: 2px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .gap-label {
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 7pt;
+    letter-spacing: 0.1em;
+    margin-right: 6px;
+  }
+
+  @media print {
+    @page { margin: 0; size: letter; }
+    html { font-size: 9.5pt; }
+    body {
+      padding: 18mm;
+      max-width: 100%;
+      background-color: white;
+      background-image: none;
+    }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h2 { margin-top: 28px; }
+    .funnel-table { font-size: 8pt; table-layout: fixed; width: 100%; }
+    .funnel-table th:nth-child(1), .funnel-table td:first-child { width: 18%; min-width: unset; }
+    .funnel-table th:nth-child(2) { width: 9%; }
+    .funnel-table th:nth-child(3),
+    .funnel-table th:nth-child(4),
+    .funnel-table th:nth-child(5) { width: 24.3%; }
+    .funnel-table td, .funnel-table th { padding: 6px 8px; word-wrap: break-word; }
+    .funnel-gap-row td { padding: 4px 8px 7px; }
+    .cover {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-eyebrow">Digital Consulting Case Study</div>
+  <h1>SFCM.edu — Digital Audit &amp; Opportunity Analysis</h1>
+  <div class="cover-sub">San Francisco Conservatory of Music · Web Producer Role Assessment</div>
+  <div class="cover-meta">
+    <span><strong>Prepared by:</strong> Céline Nadeau</span>
+    <span><strong>Date:</strong> March 2026</span>
+    <span><strong>Scope:</strong> sfcm.edu (Drupal 10 · Kanopi Studios · public-facing)</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<nav class="toc">
+  <div class="toc-label">Contents</div>
+  <ol>
+    <li><span class="toc-num">—</span><a href="#exec-summary">Executive Summary</a></li>
+    <li><span class="toc-num">—</span><a href="#framework">Analytical Framework</a></li>
+    <li><span class="toc-num">1</span><a href="#funnel">Audience Funnel Analysis</a></li>
+    <li><span class="toc-num">2</span><a href="#conversion">Conversion Points &amp; CTA Audit</a></li>
+    <li><span class="toc-num">3</span><a href="#accessibility">Accessibility Compliance</a></li>
+    <li><span class="toc-num">4</span><a href="#seo">SEO &amp; Discoverability</a></li>
+    <li><span class="toc-num">5</span><a href="#content">Content Strategy &amp; Video</a></li>
+    <li><span class="toc-num">6</span><a href="#technical">Technical &amp; Integration Notes</a></li>
+    <li><span class="toc-num">7</span><a href="#personalization">Personalization, Retention &amp; Conversion</a></li>
+    <li><span class="toc-num">8</span><a href="#competitive">Competition &amp; Best Practices</a></li>
+    <li><span class="toc-num">9</span><a href="#priorities">Prioritized Recommendations</a></li>
+    <li><span class="toc-num">—</span><a href="#closing">Closing Note</a></li>
+  </ol>
+</nav>
+
+<!-- EXECUTIVE SUMMARY -->
+<h2 id="exec-summary">Executive Summary</h2>
+<p>SFCM.edu is a well-maintained, content-rich Drupal site that clearly serves its institution's mission. The Bowes Center launch, the unique industry alliance model (Pentatone, Opus 3, Askonas Holt), and a genuinely active newsroom give SFCM differentiated content that very few conservatories can match. The site's four institutional goals — recruit students, engage donors, surface performances, and grow continuing education — are each legibly served.</p>
+<p>That said, the site is currently built around a single undifferentiated visitor experience. A prospective student from South Korea, an SF retiree who attends free concerts, and a major donor considering a legacy gift all see the identical homepage. The most significant opportunity across every audience is not a redesign — it is <strong>removing the friction that exists between each audience's intent and their conversion point.</strong> This audit maps those friction points by audience, then catalogs the technical, content, and SEO issues that compound them.</p>
+
+<!-- ANALYTICAL FRAMEWORK -->
+<h2 id="framework">Analytical Framework</h2>
+<div class="framework-callout">
+  <p>This audit is structured around a <strong>persona-based funnel analysis</strong> — mapping each distinct audience through their awareness → engagement → conversion journey, identifying where the site supports or undermines that journey. Technical findings (accessibility, SEO, integrations) are then presented as a prioritized issue register, anchored to the audience impacts identified in the funnel analysis. This approach surfaces both strategic gaps (wrong content, wrong placement) and tactical ones (broken links, missing markup) in the same framework, prioritized by real-world impact.</p>
+</div>
+
+<!-- SECTION 1: AUDIENCE FUNNEL ANALYSIS -->
+<h2 id="funnel">1. Audience Funnel Analysis</h2>
+<p class="section-intro">Six distinct audiences use sfcm.edu. Each has a different primary goal and a different conversion definition. The table below maps each audience against the four funnel stages, scores the site's current performance at each stage, and identifies the highest-impact gap.</p>
+
+<table class="funnel-table">
+  <thead>
+    <tr>
+      <th>Audience</th>
+      <th>Goal</th>
+      <th>Awareness</th>
+      <th>Engagement</th>
+      <th>Conversion</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Prospective collegiate student<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">18–24, auditioning for BM/MM. Comparing SFCM to Juilliard, Curtis, NEC.</span></td>
+      <td><span class="goal-pill goal-recruit">Recruit</span></td>
+      <td><span class="stage-score score-strong">Strong</span> SEO for branded queries; admissions page is clear.</td>
+      <td><span class="stage-score score-ok">OK</span> Stats (99% scholarship, 3:1 ratio) are prominent. Faculty listed.</td>
+      <td><span class="stage-score score-ok">OK</span> Apply Now CTA clear. Request Info form works.</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> No searchable alumni outcomes database. Student Blog posts exist but are infrequent and buried under a non-intuitive URL. Program pages too thin to rank against competing conservatories for instrument-specific queries.</td>
+    </tr>
+
+    <tr>
+      <td>Donor / patron<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">45–70, SF cultural community. Attends concerts. Motivated by impact and access.</span></td>
+      <td><span class="goal-pill goal-revenue">Revenue</span></td>
+      <td><span class="stage-score score-strong">Strong</span> "Giving" is in the global utility nav; always visible.</td>
+      <td><span class="stage-score score-ok">OK</span> Student testimonials are moving. Ways to Give section is comprehensive.</td>
+      <td><span class="stage-score score-weak">Weak</span> Staff contact emails rely on Cloudflare obfuscation — inaccessible to screen readers. Impact report link is stale (2021–22 in body vs. 2024–25 in footer).</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> The contact path for designated/endowment giving is inaccessible to assistive technology and signals neglect to a careful donor. Every high-net-worth gift starts with a conversation.</td>
+    </tr>
+
+    <tr>
+      <td>Continuing Education student<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">35–65, amateur musician. High-value, recurring revenue audience.</span></td>
+      <td><span class="goal-pill goal-revenue">Revenue</span></td>
+      <td><span class="stage-score score-weak">Weak</span> CE is buried 3 nav levels deep. No homepage CTA. Not discoverable by organic search.</td>
+      <td><span class="stage-score score-weak">Weak</span> CE section exists but has no pricing surface and an unclear enrollment path.</td>
+      <td><span class="stage-score score-weak">Weak</span> "Contact Us" goes to a generic form rather than a direct registration flow.</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> This audience is effectively invisible from the homepage. CE is a significant institutional revenue stream with a motivated, ready-to-convert audience — and the site is not capturing it.</td>
+    </tr>
+
+    <tr>
+      <td>SF music lover / concert-goer<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">25–65, attends free performances. Warmest community lead — may become donor or CE student.</span></td>
+      <td><span class="goal-pill goal-engage">Engage</span></td>
+      <td><span class="stage-score score-strong">Strong</span> Performance calendar is excellent: filterable, comprehensive, regularly updated.</td>
+      <td><span class="stage-score score-ok">OK</span> Event detail pages are clean. Plan Your Visit page exists.</td>
+      <td><span class="stage-score score-weak">Weak</span> No email capture on calendar or event pages. No iCal/Google Cal subscription. Visitor leaves without a retention hook.</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> The performance audience is SFCM's warmest lead pool — people already showing up. The site captures none of them. A newsletter signup on event pages alone would measurably grow the donor and CE pipeline.</td>
+    </tr>
+
+    <tr>
+      <td>Pre-college parent<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">35–55, parent of musically gifted child 8–18. High anxiety; needs reassurance on cost, safety, quality.</span></td>
+      <td><span class="goal-pill goal-recruit">Recruit</span></td>
+      <td><span class="stage-score score-ok">OK</span> Pre-College section exists and is linked from nav.</td>
+      <td><span class="stage-score score-weak">Weak</span> No age-group routing, no "Is SFCM right for my child?" entry point. Faculty credentials not surfaced for pre-college.</td>
+      <td><span class="stage-score score-ok">OK</span> Contact forms exist for each pre-college sub-program.</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> No homepage presence for pre-college. Parent arriving via generic search has no clear path to relevant content.</td>
+    </tr>
+
+    <tr>
+      <td>Current student / faculty<br><span style="font-weight:400;color:var(--muted);font-size:8.5pt">Enrolled. Uses site for calendar, portals, resources.</span></td>
+      <td><span class="goal-pill goal-retain">Retain</span></td>
+      <td>—</td>
+      <td><span class="stage-score score-ok">OK</span> Academic Calendar, Library, Student Portal all accessible.</td>
+      <td><span class="stage-score score-ok">OK</span> Portal links work. Resources navigation is dense but complete.</td>
+    </tr>
+    <tr class="funnel-gap-row">
+      <td colspan="5"><span class="gap-label">Highest-impact gap:</span> Student Blog — a potential community-building and prospective-student conversion asset — is infrequently updated and filed under a non-intuitive URL (/student-blog rather than /discover/). Posts exist but cadence is inconsistent.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="callout">
+  <p>The pattern across all six audiences is consistent: <strong>awareness and top-of-funnel content are the site's strengths; retention and conversion mechanics are where value leaks.</strong> The site brings people in but does not give them a reason to stay connected, subscribe, or take the next step.</p>
+</div>
+
+<!-- SECTION 2: CONVERSION POINTS -->
+<h2 id="conversion">2. Conversion Points &amp; CTA Audit</h2>
+<p class="section-intro">A direct assessment of each institutional conversion goal: whether the path to action is clear, functional, and well-placed.</p>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge ok">Working</span></div>
+  <div class="finding-body">
+    <h4>Applications — funnel is clear and functional</h4>
+    <p>"Apply Now" and "Request Information" CTAs appear at the top and bottom of the Admissions page, linking to apply.sfcm.edu. Key proof points (99% scholarship, student-teacher ratio, countries represented) are above the fold. The admissions team has human faces and Calendly links — a nice touch that makes the institution feel approachable.</p>
+    <div class="rec">→ Opportunity: instrument-specific landing pages (e.g. "Guitar at SFCM") would significantly outperform the generic admissions page for paid search traffic targeting serious applicants. A prospective guitar student wants to know about guitar faculty, guitar alumni outcomes, and guitar ensemble opportunities — not generic conservatory information.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Risk</span></div>
+  <div class="finding-body">
+    <h4>Donations — major gift contact path is inaccessible to assistive technology</h4>
+    <p>Staff contact emails for designated, endowment, alumni, and corporate giving are protected via Cloudflare's Email Address Obfuscation — a bot-mitigation feature that encodes addresses in the HTML and decodes them client-side via JavaScript. While this renders correctly in standard browsers, it is completely inaccessible to screen readers, which read the raw encoded string rather than the email address. WCAG success criteria 1.3.1 (Info and Relationships) and 4.1.2 (Name, Role, Value) require that interactive elements expose their purpose to assistive technology — this implementation does not. The "Our Impact" link in the body also points to a 2021–22 report, while the footer nav correctly links to 2024–25 — a mismatch that a careful donor will notice.</p>
+    <div class="rec">→ Replace Cloudflare email obfuscation on the Giving page with a native Drupal webform for major gift inquiries. This preserves bot protection, ensures WCAG compliance, keeps the visitor in the SFCM brand environment, and enables tracking of high-value donor inquiries. Fix the impact report link immediately — it is a simple content edit.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>Performance attendance — no audience capture mechanism</h4>
+    <p>The performance calendar is the site's strongest feature: filterable, comprehensive, 500+ events/year, 95% free. But there is no email capture, no iCal subscription, no newsletter prompt, and no recurring engagement hook on any event page. The concert audience is SFCM's warmest community lead — people physically showing up — and the site sends them away without capturing anything.</p>
+    <div class="rec">→ Add a "Sign up for event updates" email capture to the calendar and individual event pages. Add iCal/Google Calendar subscription links (essentially zero dev cost for a Drupal date field). Surface the donation CTA more prominently on event detail pages. These three changes together form the simplest possible donor pipeline from an already-engaged audience.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>Continuing Education enrollment — effectively invisible</h4>
+    <p>CE (private lessons, certificate programs, workshops for adult learners) is a high-value recurring revenue stream. It does not appear on the homepage. It requires 3 navigation clicks to reach from the nav. There is no pricing surface, no direct enrollment path, and the "Contact Us" link goes to a generic form rather than a CE-specific inquiry flow. This audience is motivated and ready to convert — the site is not meeting them.</p>
+    <div class="rec">→ Add a CE entry point on the homepage alongside the existing performance and admissions CTAs. Build a direct registration/inquiry flow with visible pricing. Of all the recommendations in this audit, this single change likely has the highest revenue ROI relative to implementation effort.</div>
+  </div>
+</div>
+
+<!-- SECTION 3: ACCESSIBILITY -->
+<h2 id="accessibility">3. Accessibility Compliance (WCAG 2.1 AA)</h2>
+<p class="section-intro">As a federally funded educational institution, WCAG 2.1 AA compliance is a legal obligation under Section 508 and the ADA — not a best practice. The job description names WCAG explicitly. The findings below are based on surface-level inspection; a full automated audit (Axe, Lighthouse, WAVE) would surface additional issues.</p>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Fail</span></div>
+  <div class="finding-body">
+    <h4>Cloudflare email obfuscation — WCAG 1.3.1, 4.1.2</h4>
+    <p>Cloudflare's Email Address Obfuscation feature encodes contact addresses on the Giving page in a way that is completely inaccessible to screen readers. The encoded HTML renders as a garbled string to assistive technology — a screen reader following a "contact us for major gift information" flow would hit a dead end. This fails WCAG success criteria 1.3.1 (Info and Relationships — meaning conveyed visually must be programmatically determinable) and 4.1.2 (Name, Role, Value — UI components must expose their purpose to assistive technology). This is the site's highest-severity accessibility issue and simultaneously its most damaging conversion gap: the same fix addresses both.</p>
+    <div class="rec">→ Replace with a native Drupal webform for gift inquiries. Alternatively, use a CSS-only or server-side obfuscation method that preserves semantic link markup and aria attributes. The Cloudflare setting can remain active on the rest of the site — this is a targeted fix for a specific page's high-value content.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Fail</span></div>
+  <div class="finding-body">
+    <h4>Social icon link labels — WCAG 2.4.6</h4>
+    <p>Footer social links render with labels like "kdcl_basic Facebook" — a raw Drupal template variable that has not been overridden in the theme layer. This is confirmed in the live site's rendered source. A screen reader would announce this string verbatim, which is both confusing and non-descriptive. WCAG 2.4.6 requires that link labels be descriptive and meaningful; a screen reader user navigating the footer would have no way to identify these as social media links.</p>
+    <div class="rec">→ Override the Drupal icon block template to output aria-label="SFCM on Facebook" (and equivalent for Instagram, TikTok, X/Twitter, YouTube). This is a 10–15 minute theme fix with immediate accessibility impact. The social links themselves are correct; only the label variable needs to be overridden.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Risk</span></div>
+  <div class="finding-body">
+    <h4>No cookie consent / data privacy notice</h4>
+    <p>The site loads without a cookie consent banner or privacy notice of any kind. SFCM almost certainly uses Google Analytics (GA4) and likely advertising pixels for its admissions recruitment funnel — both require disclosure and, in many jurisdictions, active consent. California's CCPA applies to all California residents; GDPR applies to visitors from the EU and UK, a significant population given SFCM's international student body (students from 34 countries). The absence of consent management is a legal compliance risk, not merely a best practice gap.</p>
+    <div class="rec">→ Implement a consent management platform (CMP) — OneTrust, Cookiebot, or the lightweight Drupal EU Cookie Compliance module. Configure Google Analytics in Consent Mode v2 so that analytics continue to function in an aggregated, privacy-safe mode for users who decline. This also requires publishing or updating a Privacy Policy page linked from the consent banner.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge note">Note</span></div>
+  <div class="finding-body">
+    <h4>Image alt text quality is inconsistent</h4>
+    <p>Several images carry generic or uninformative alt text. This fails WCAG 1.1.1 for informative images and also weakens image SEO, since alt text is a primary signal Google uses to index and rank image content. For a conservatory, images of performances, faculty, and campus life are high-value assets — they deserve descriptive alt text that works hard on both dimensions.</p>
+    <div class="rec">→ Establish an alt text content standard as part of the content governance framework; audit the existing media library systematically; include alt text requirements in contributor training. Drupal's media management can enforce required alt text fields at the CMS level.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge ok">Good</span></div>
+  <div class="finding-body">
+    <h4>Skip navigation link and WebP images</h4>
+    <p>A "Skip to main content" link is correctly implemented on every page — a foundational accessibility requirement that many sites miss. All images are served as .webp, reflecting good performance hygiene and a better experience for users on slow connections or mobile devices. Both are signs of a thoughtfully maintained Drupal installation.</p>
+  </div>
+</div>
+
+<!-- SECTION 4: SEO -->
+<h2 id="seo">4. SEO &amp; Discoverability</h2>
+<p class="section-intro">Including AI search engine considerations — an increasingly important dimension as prospective students use AI assistants to research programs.</p>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge ok">Strong</span></div>
+  <div class="finding-body">
+    <h4>URL structure, breadcrumbs, and internal navigation</h4>
+    <p>URL hierarchy is clean and semantic (/study/majors/brass, /experience/giving/make-gift). Breadcrumbs appear on all interior pages. The mega-nav provides comprehensive internal linking throughout the site. These are foundational SEO assets that many institutions get wrong; SFCM gets them right.</p>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>Program pages are too thin for competitive ranking</h4>
+    <p>Department pages like /study/majors/brass list degrees and faculty icons but contain very little prose. Google struggles to rank thin pages for competitive queries like "best brass conservatory US" or "master's trombone San Francisco." Juilliard and NEC program pages are significantly richer in content. This is also an AI search vulnerability: when a student asks an AI assistant "what's the best conservatory for baroque violin," the answer is drawn from the most authoritative, content-rich pages — thin pages don't get cited regardless of how good the actual program is.</p>
+    <div class="rec">→ Expand each program page to 600–900 words of unique content: program philosophy, notable alumni outcomes, ensemble opportunities, faculty credentials, and FAQs. This serves both SEO and the prospective student conversion funnel, and can be phased — prioritize the highest-enrollment programs first.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Win</span></div>
+  <div class="finding-body">
+    <h4>Schema.org Event markup missing on performance listings</h4>
+    <p>Performance listings are well-structured and date-stamped but carry no schema.org Event markup. Adding this would enable Google rich results — event cards in search results with date, time, and location displayed inline — which is potentially significant for local SF music discovery searches. This is a direct driver of the concert-goer funnel and requires no content changes, only structured data implementation.</p>
+    <div class="rec">→ Implement Event schema via Drupal's Schema.org Blueprints module or custom field mapping on the performance content type. The Drupal infrastructure to support this almost certainly already exists; it is primarily a configuration task. High impact, medium effort.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Win</span></div>
+  <div class="finding-body">
+    <h4>AI search optimization: FAQ and structured prose on high-intent pages</h4>
+    <p>Google's Search Generative Experience and AI assistants increasingly surface direct answers from well-structured pages. SFCM has excellent citable data (99% scholarship rate, 3:1 student-teacher ratio, 34 countries represented) but it sits in visual stat blocks rather than crawlable prose that AI models can parse and quote. FAQs structured with clear H2/H3 hierarchy are the most effective format for AI answer engine optimization — and they serve human readers equally well.</p>
+    <div class="rec">→ Add FAQ sections to Admissions, Financial Aid, and individual program pages. Write for the question format: "How much does SFCM cost?", "What instruments does SFCM offer?", "What do SFCM graduates do?" These questions are already being asked — the goal is to ensure SFCM's pages are the ones that answer them.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge note">Note</span></div>
+  <div class="finding-body">
+    <h4>Cross-linking between content types is weak</h4>
+    <p>A faculty profile does not link to their upcoming performances. A news story about a student winning a prize does not link to that student's department. A performance event does not link to the performing faculty member's bio. These missed links lose both SEO link equity and user engagement — and they make the site feel like a collection of siloed sections rather than a coherent, interconnected institution.</p>
+    <div class="rec">→ Build Faculty ↔ Performances ↔ News ↔ Programs entity relationships in Drupal using entity reference fields. This is primarily a CMS configuration task, not a content task, and has a compounding long-term SEO benefit as the content library grows. It also significantly improves the UX for every audience who follows one thread of interest across the site.</div>
+  </div>
+</div>
+
+<!-- SECTION 5: CONTENT & VIDEO -->
+<h2 id="content">5. Content Strategy &amp; Video Integration</h2>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>YouTube assets exist but are not integrated into the site experience</h4>
+    <p>SFCM links to its YouTube channel from the footer, but no video content is embedded anywhere prominent on the site. The Newsroom has a "Featured Video" field that is inconsistently populated. For a conservatory, audio-visual content is the most powerful conversion asset available — performance clips, masterclass highlights, faculty profiles, student stories. This content exists on YouTube and none of it is woven into the moments where it would matter most: the Admissions decision page, the individual program pages, the Giving section.</p>
+    <div class="rec">→ Embed curated YouTube content at high-intent pages: Admissions (student life and campus culture videos), each major/program page (performance samples from that discipline), and Giving (student impact stories). No new content production is required — the asset library already exists. This is a content governance and template task that could be completed in a focused sprint.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>Student Blog has valuable content but inconsistent cadence and poor discoverability</h4>
+    <p>The Student Blog (/student-blog) contains genuinely compelling, voice-driven content about student life, musical growth, and life in San Francisco — exactly the peer-to-peer content that prospective students trust most during the decision process. Posts do exist beyond the COVID era (the Bowes Center and Opus 3 alliance posts appear more recent), but the cadence is irregular and the URL is filed outside the /discover/ hierarchy, making it harder to surface in navigation and less intuitive for visitors who find it organically.</p>
+    <div class="rec">→ Move to /discover/student-blog for IA consistency; establish a light posting cadence (even one post per month is a significant improvement); surface 1–2 recent posts on the Admissions landing page. Student-written content is free to produce, highly trusted by prospective students, and has excellent long-tail SEO value for queries like "what is it like to be a student at SFCM."</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>Alumni success is impressive but not searchable</h4>
+    <p>Success stories are published regularly and are genuinely impressive — Super Bowl halftime, New York Philharmonic, MacDowell fellowships, Emmy awards. But they live inside the chronological news feed, unsearchable by program or instrument. A prospective guitar student researching outcomes cannot find "what happened to SFCM guitar graduates" without manually browsing the newsroom. This is a significant miss in the conversion funnel, where outcome data is one of the highest-weight decision factors.</p>
+    <div class="rec">→ Build a dedicated Alumni Outcomes section with entries filterable by instrument/program, outcome type (orchestral, chamber, film/TV, teaching, entrepreneurship), and graduation year. In Drupal terms, this is a new content type and a Views configuration — moderate effort, high and lasting impact on the prospective student conversion funnel.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Stale</span></div>
+  <div class="finding-body">
+    <h4>COVID-19 page still in primary navigation (March 2026)</h4>
+    <p>A COVID-19 Information page appears as a first-level item under About Us in the live navigation. To a careful visitor this signals that the site is not being actively curated; it also wastes navigation real estate and crawl budget on content that is six years past its relevance window.</p>
+    <div class="rec">→ Archive or unpublish; implement a 301 redirect to Campus Life or Health &amp; Wellness if any content remains relevant. This is a five-minute edit with a meaningful freshness signal.</div>
+  </div>
+</div>
+
+<!-- SECTION 6: TECHNICAL -->
+<h2 id="technical">6. Technical &amp; Integration Notes</h2>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge ok">Good</span></div>
+  <div class="finding-body">
+    <h4>Core infrastructure is solid — and well-documented</h4>
+    <p>The current site is Drupal 10, built and maintained by <strong>Kanopi Studios</strong>, SFCM's agency partner since 2017. The D10 build (launched 2024) included a full migration from Drupal 7 via the Migrate suite, a component-based layout system using the <strong>Paragraphs module</strong>, and site search powered by <strong>Search API + Search API Solr + Facets</strong> — the same stack that drives the performance calendar filtering. Content scheduling uses the <strong>Scheduler module</strong>. The Kanopi relationship is full-service: discovery, UX, design, development, content strategy, and ongoing support. External systems — apply.sfcm.edu (admissions), plannedgiving.sfcm.edu (legacy giving), shop.sfcm.edu (merchandise), register.sfcm.edu (student portal) — are cleanly separated on subdomains. A logged-in event account system (sfcm.edu/account) is in place, suggesting ticketing/RSVP infrastructure that could anchor audience capture across the concert-goer funnel.</p>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Risk</span></div>
+  <div class="finding-body">
+    <h4>In-kind giving routes to an external Google Form</h4>
+    <p>The in-kind donation process links to a Google Form — functional in the short term but fragile. If the form link is archived or the account changes, there is no fallback, and the visitor exits the SFCM brand environment entirely. For a process as relationship-sensitive as institutional giving, this is a weak link.</p>
+    <div class="rec">→ Migrate to a native Drupal webform for better control, data ownership, and brand continuity. This also enables direct integration with CRM or Advancement systems for gift tracking.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Opportunity</span></div>
+  <div class="finding-body">
+    <h4>Event account system could anchor audience retention</h4>
+    <p>The existing event account infrastructure (sfcm.edu/account) is an underutilized asset. A logged-in user who has RSVPed to performances is the warmest possible lead for newsletter subscription, giving campaigns, and CE enrollment — they have already demonstrated intent by creating an account and attending a performance.</p>
+    <div class="rec">→ Surface account creation more prominently on event pages; use account data to drive personalized follow-up communications post-performance. This is a CRM and email integration task that builds on infrastructure already in place.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Opportunity</span></div>
+  <div class="finding-body">
+    <h4>Digital signage integration — a natural extension of the CMS</h4>
+    <p>Campus digital signage (wayfinding, event promotion, student communications) is a common integration point for Drupal-based institutional sites. Currently, signage content likely requires separate manual updates, creating maintenance overhead and the risk of inconsistency with what is published on sfcm.edu — particularly for the performance calendar, which is already updated daily.</p>
+    <div class="rec">→ Evaluate a Drupal-to-signage feed: the performance calendar content type could publish directly to digital displays via a JSON/RSS endpoint, ensuring signage is always current with minimal additional effort. The Drupal infrastructure — structured, date-stamped performance data — is already the right foundation for this integration. This also addresses the digital signage requirement listed in the Web Producer job description.</div>
+  </div>
+</div>
+
+<!-- SECTION 7: PERSONALIZATION -->
+<h2 id="personalization">7. Personalization, Retention &amp; Conversion Strategy</h2>
+<p>The 2024 Kanopi rebuild made meaningful progress on audience clarity: the three-section primary navigation (Study / Discover / Experience) replaced a more unwieldy structure, and action-based copy improved the sense of who each section serves. That work is visible and effective. But sfcm.edu still presents a largely undifferentiated experience once a visitor lands — the homepage does not actively route different audiences toward their respective conversion paths, and the six distinct personas the Kanopi discovery process identified are not yet reflected in the homepage entry experience. Four strategic areas stand out.</p>
+
+<h3>7.1 — Making the Site "Sticky": Retention Infrastructure</h3>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Quick win</span></div>
+  <div class="finding-body">
+    <h4>"Add to Calendar" buttons on every event page</h4>
+    <p>Every event page should carry an iCal download link and a one-click "Add to Google Calendar" button. These are trivial to implement from Drupal's existing date fields — the structured data is already there. The strategic value is disproportionate to the effort: a user who adds an SFCM event to their personal calendar is now carrying SFCM on their device. The event reminder pulls them back. That return visit — to the campus, or to sfcm.edu — is the warmest possible re-engagement opportunity, and the most direct pipeline from concert-goer to newsletter subscriber to donor. It puts SFCM into the user's personal scheduling infrastructure, which is a retention anchor no banner ad can replicate.</p>
+    <div class="rec">→ Add iCal/Google Calendar links to the event content type template. This is a single Drupal template edit using existing date fields. Cost: hours, not days. Pair with a newsletter signup prompt on the same page: "Enjoying SFCM performances? Get the season calendar in your inbox."</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Medium term</span></div>
+  <div class="finding-body">
+    <h4>Geolocation-aware homepage content</h4>
+    <p>SFCM's homepage serves two very different primary audiences: local SF residents whose conversion goal is attending a performance or enrolling in CE, and international prospective students whose conversion goal is applying to a degree program. These audiences have almost no content overlap. A local SF resident does not need a visa information banner; an international student from Seoul does not need "Plan Your Visit" directions to Oak Street. A lightweight geolocation layer — using the browser's existing IP geolocation data, with no cookies or consent overhead required — could surface the performance calendar and CE enrollment prominently for Bay Area visitors, while foregrounding Admissions, scholarship statistics, and international student resources for visitors from abroad. This requires no personalization infrastructure; it is a server-side conditional block render on the homepage template.</p>
+    <div class="rec">→ Implement as a Drupal block visibility condition using a geolocation module (e.g., Smart IP or GeoField). Configure two homepage variants: Bay Area (zip codes 94xxx) surfaces Performance Calendar + CE CTA; international visitors surface Admissions stats + visa/application timeline. Can be A/B tested via Google Optimize before full rollout.</div>
+  </div>
+</div>
+
+<h3>7.2 — Serving the Underserved Persona: Continuing Education</h3>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge issue">Gap</span></div>
+  <div class="finding-body">
+    <h4>CE is SFCM's forgotten revenue stream — the site treats it that way</h4>
+    <p>Continuing Education is a high-margin, recurring revenue product with a motivated, ready-to-convert audience: adult musicians in the Bay Area who already respect SFCM, do not need financial aid, and are looking for structured instruction with world-class faculty. This audience is radically different from a collegiate applicant — they do not want a six-month admissions cycle, they want to know the price, the schedule, and how to register. Right now, CE lives three navigation clicks from the homepage, has no visible pricing, and routes inquiries through a generic contact form. This is not a content problem; it is an architecture and conversion design problem.</p>
+    <div class="rec">→ Three concrete fixes, in order of effort: (1) Add a CE entry point directly to the homepage hero region — a single prominent CTA alongside "Apply" and "Attend a Concert." (2) Surface pricing on the CE landing page. (3) Replace the generic "Contact Us" form with a CE-specific Quick Inquiry webform that captures name, instrument, preferred schedule, and skill level — fields that help the CE team qualify and respond faster, and that signal to the visitor that someone will actually follow up. This is the highest revenue ROI item in this audit relative to implementation effort.</div>
+  </div>
+</div>
+
+<h3>7.3 — SEM &amp; AI Search: Making SFCM the Answer</h3>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Medium term</span></div>
+  <div class="finding-body">
+    <h4>AI search optimization: converting stat blocks into citable prose</h4>
+    <p>SFCM's strongest proof points — 99% of students on scholarship, 3:1 student-teacher ratio, students from 34 countries — currently live in visual stat blocks that are readable to humans but largely invisible to AI answer engines. Google's Search Generative Experience, Perplexity, and ChatGPT retrieve answers by parsing prose and FAQ structures, not design components. When a prospective student asks an AI, "Which conservatory gives the most financial aid?" or "What is SFCM's scholarship rate?", the answer is pulled from the most authoritative, prose-rich page that directly addresses the question. A 300-word FAQ section — "How does SFCM scholarship funding work? What percentage of SFCM students receive aid? How do I apply for financial aid at SFCM?" — converts those same statistics into citable, crawlable, rankable content. The investment is minimal; the compounding returns as AI search grows are significant.</p>
+    <div class="rec">→ Add FAQ sections (structured as H3 + prose, not accordions that require JavaScript to reveal) to Admissions, Financial Aid, and each major program page. Write each FAQ answer to be self-contained and quotable — 50–100 words, in plain language, structured to answer a single specific question a student or parent would actually ask an AI assistant.</div>
+  </div>
+</div>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Medium term</span></div>
+  <div class="finding-body">
+    <h4>Instrument-specific landing pages for paid search</h4>
+    <p>If SFCM runs paid search or social advertising during recruitment season — very likely — all ad traffic currently lands on a generic admissions page. A prospective violin student clicking a "Study Violin at SFCM" ad wants to land on a page about violin: violin faculty profiles, violin alumni outcomes, violin ensemble and chamber music opportunities, and a violin-specific video clip. The misalignment between ad creative and landing page content is a direct Quality Score penalty in Google Ads, which means higher cost-per-click and lower ad visibility. More importantly, it is a conversion miss — the motivated, high-intent visitor who clicked a specific ad does not want to parse a generic page to find the instrument-specific content they were promised.</p>
+    <div class="rec">→ Build instrument landing pages as a reusable Drupal content type with a standardized template: header performance video → faculty grid → alumni outcomes → program stats → single CTA. Start with the five highest-enrollment instruments (strings, piano, voice, winds, brass). Once the template exists, each additional page is a content task, not a development task. These pages also serve organic SEO: "violin conservatory San Francisco" and similar queries are underserved by SFCM's current program pages.</div>
+  </div>
+</div>
+
+<h3>7.4 — Audience Entry: Homepage Routing</h3>
+
+<div class="finding">
+  <div class="finding-status"><span class="badge opportunity">Quick win</span></div>
+  <div class="finding-body">
+    <h4>"I'm looking for…" homepage entry module</h4>
+    <p>A simple audience routing module near the top of the homepage — four clear paths (Prospective Student / Adult Learner / Attend a Concert / Support SFCM) — would immediately direct each primary persona toward their relevant conversion funnel. No tracking, no cookies, no personalization infrastructure required: this is smart, human-readable navigation design. Many universities use this pattern with measurable conversion improvement across all audience segments, because it removes the cognitive load of parsing a complex site structure from a cold start. The six personas identified in the Kanopi discovery process deserve a front door that acknowledges them — this is the simplest implementation of that recognition.</p>
+    <div class="rec">→ Implement as a static block on the Drupal homepage template — four large, icon-led tiles with clear audience labels and destination links. Design-side effort is moderate; development effort is low. The main investment is in the copy and UX decision-making, not the implementation. Can be validated quickly with click-tracking in GA4 before committing to a permanent position in the page hierarchy.</div>
+  </div>
+</div>
+
+<!-- SECTION 8: COMPETITIVE ANALYSIS -->
+<h2 id="competitive">8. Competition &amp; Best Practices Research</h2>
+<p class="section-intro">A benchmark scan of SFCM's primary competitors — Curtis Institute, Juilliard, NEC, Oberlin Conservatory, and Flagler — surfaces three strategic feature gaps where peer institutions have built meaningful UX advantages. These are not cosmetic differences; each maps directly to one of SFCM's four institutional goals. This section is offered in the spirit of strategic context: the opportunities below are informed by what is working elsewhere, adapted to what is realistic and distinctive for SFCM's specific scale, mission, and digital infrastructure.</p>
+
+<table class="funnel-table">
+  <thead>
+    <tr>
+      <th>Feature Category</th>
+      <th>Competitor Example</th>
+      <th>Gap at SFCM</th>
+      <th>Strategic Opportunity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Alumni Outcomes</strong></td>
+      <td>Curtis Institute highlights individual "Grand Alumni" — Hilary Hahn, Lang Lang, Jennifer Higdon — with rich career bios, discographies, and award timelines. Each profile is linked from the relevant instrument program page, creating a direct outcomes-to-program content relationship.</td>
+      <td>SFCM alumni wins appear in the chronological news feed but are unsearchable by instrument, career path, or graduation year. A prospective oboe student cannot find "where are SFCM oboe graduates now" without manually browsing the newsroom.</td>
+      <td>Build a searchable Alumni Outcomes section — a Drupal content type with Views-powered filtering by instrument, career track (orchestral, chamber, film/TV, teaching, entrepreneurship), and graduation era. Begin with 20–30 profiles from the most celebrated graduates; the infrastructure then enables ongoing additions as a lightweight content task.</td>
+    </tr>
+    <tr>
+      <td><strong>Audience Routing</strong></td>
+      <td>Oberlin uses a dual-focus homepage layout that cleanly separates the College from the Conservatory, giving each audience a distinct visual and navigational entry point from the first screen. NEC uses explicit "I am a…" routing tiles in the hero region. Both reduce cognitive load significantly for first-time visitors.</td>
+      <td>SFCM's homepage presents a single unified experience. The three-section nav (Study / Discover / Experience) is well-structured, but a first-time visitor — whether a prospective student from abroad or an SF resident curious about free concerts — must interpret the navigation hierarchy before finding their path. The six Kanopi personas are not yet reflected in the homepage entry experience.</td>
+      <td>Implement an "I'm looking for…" routing module below the hero: four clear tiles — Prospective Student / Adult Learner / Attend a Concert / Support SFCM — each linking directly to the relevant conversion path. No personalization infrastructure required; this is static UX design. Measurable lift across all four audience conversion funnels with a single, well-executed template change.</td>
+    </tr>
+    <tr>
+      <td><strong>Virtual Immersion</strong></td>
+      <td>Flagler College and Oberlin use professional "Day in the Life" video reels embedded directly into program and admissions pages — not linked to YouTube, but embedded inline. Some conservatories have added 360° virtual campus tours. These assets are especially high-value for international applicants who cannot visit in person before making a decision.</td>
+      <td>SFCM has an active YouTube presence with genuine performance footage, student profiles, and faculty interviews — but this content is accessible only via a footer link to the YouTube channel. No video is embedded on the Admissions page, on any program/major page, or on the Giving section. The assets exist; they are simply not deployed where they would have the most conversion impact.</td>
+      <td>Deploy existing YouTube assets strategically: one student-life or campus culture video on the Admissions landing page; one discipline-specific performance clip on each major/program page (guitar faculty performing, string quartet, etc.); one student impact story on the Giving section. No new production required. A focused content sprint could complete this across all major program pages in under a week. For SFCM's international applicant audience in particular — students from 34 countries who may never visit before applying — this is a high-stakes gap.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <p><strong>A note on competitive context:</strong> SFCM has genuine differentiators that Curtis, Juilliard, and Oberlin cannot claim — the Pentatone label partnership, the Opus 3 and Askonas Holt alliances, the Bowes Center, and a 100% free performance model for the public. The opportunity is not to imitate competitors but to ensure that SFCM's distinctive strengths are as visible, navigable, and searchable as possible. The competitive gaps above are execution gaps, not mission gaps.</p>
+</div>
+
+<!-- SECTION 9: PRIORITY TABLE -->
+<h2 id="priorities">9. Prioritized Recommendations</h2>
+<p class="section-intro">Sequenced by effort-to-impact ratio. P1 items are high-stakes quick wins actionable in the first 30 days; P2 items are Q2 improvements; P3 items are higher-effort structural investments with compounding long-term returns.</p>
+
+<table class="priority-table">
+  <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Recommendation</th>
+      <th>Audience impact</th>
+      <th>Effort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p1">P1 — Now</td>
+      <td>Replace Cloudflare email obfuscation on Giving page with native webform</td>
+      <td>Donors — WCAG compliance + high-value gift pipeline</td>
+      <td>Low–Med</td>
+    </tr>
+    <tr>
+      <td class="p1">P1 — Now</td>
+      <td>Fix social icon link labels ("kdcl_basic Facebook") via Drupal theme override</td>
+      <td>All — WCAG 2.4.6 / screen reader accessibility</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p1">P1 — Now</td>
+      <td>Fix "Our Impact" body link → 2024–25 report</td>
+      <td>Donors — content accuracy / trust signal</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p1">P1 — Now</td>
+      <td>Remove / archive COVID-19 page from navigation; 301-redirect</td>
+      <td>All — site freshness signal</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p1">P1 — Now</td>
+      <td>Implement cookie consent / CCPA-GDPR privacy notice</td>
+      <td>All — legal compliance</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Add email capture + iCal/Google Cal links to performance calendar &amp; event pages</td>
+      <td>Concert-goers → donor / CE pipeline</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Add CE Quick Inquiry webform + surface CE from homepage with visible pricing</td>
+      <td>CE students — highest revenue ROI</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Embed YouTube video on Admissions, program pages, and Giving section</td>
+      <td>Students + donors — engagement + conversion</td>
+      <td>Low–Med</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Add schema.org Event markup to performance listings</td>
+      <td>Concert-goers — Google rich results / SEO</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Audit and remediate image alt text across media library</td>
+      <td>All — WCAG 1.1.1 + image SEO</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Migrate in-kind giving Google Form to native Drupal webform</td>
+      <td>Donors — brand continuity + data ownership</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p2">P2 — Q2</td>
+      <td>Evaluate Drupal-to-digital-signage feed via performance calendar content type</td>
+      <td>Campus — operational efficiency + content consistency</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Expand program pages with 600–900 words + FAQ blocks (AI search + SEO)</td>
+      <td>Students — SEO + AI search + conversion</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Add "Add to Calendar" iCal/Google Calendar links to all event pages</td>
+      <td>Concert-goers — retention + donor pipeline</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Geolocation homepage block: Bay Area = Calendar + CE; International = Admissions</td>
+      <td>All — persona-appropriate entry experience</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Build Faculty ↔ Performances ↔ News entity relationships in Drupal</td>
+      <td>All — UX + SEO link equity</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Move Student Blog to /discover/student-blog; establish posting cadence; surface on Admissions</td>
+      <td>Students — conversion + long-tail SEO</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q3</td>
+      <td>Build searchable Alumni Outcomes section filterable by program and outcome type</td>
+      <td>Students — conversion funnel</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q4</td>
+      <td>"I'm looking for…" homepage audience routing module</td>
+      <td>All — conversion across all four institutional goals</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="p3">P3 — Q4</td>
+      <td>Instrument-specific landing pages for paid search admissions campaigns</td>
+      <td>Students — ad ROI + SEO</td>
+      <td>High</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- CLOSING -->
+<h2 id="closing">Closing Note</h2>
+<p>SFCM is running a genuinely strong digital operation for an institution of its size. The Drupal installation is well-maintained, content is current and well-written, the performance calendar is a real product strength, and the alliance story (Pentatone, Opus 3, Askonas Holt) is a unique differentiator that no other conservatory can claim. The gaps identified here are not signs of neglect — they are signs of a site that has grown organically and now needs a strategic layer.</p>
+<p>The consistent pattern across every audience funnel is the same: the site brings people in well, and then does not give them a reason to stay connected or take the next step. The highest-priority work is not a redesign. It is closing the retention and conversion gaps that already exist — most of which are low-effort, high-impact fixes that a focused Web Producer could address in the first quarter.</p>
+<p>That is the kind of work I have done — at scale, at Salesforce, and for mission-driven organizations before that. I would bring the Drupal fluency to implement these changes technically, the accessibility expertise to ensure they are done right, and the strategic framing to communicate their value to Marketing, Advancement, and Communications stakeholders who may not speak "web producer."</p>
+
+<div class="doc-footer">
+  <span>Céline Nadeau · <a href="mailto:nadecel@gmail.com">nadecel@gmail.com</a> · <a href="tel:+14155779113">415.577.9113</a></span>
+  <span>March 2026 · sfcm.edu Digital Audit</span>
+</div>
+
+
+</body></html>

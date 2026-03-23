@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Céline Nadeau – Web Producer Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary:   #9c2140;
+    --secondary: #1e4a72;
+    --charcoal:  #3a3a3a;
+    --text:      #000000;
+    --muted:     #5c5c5c;
+    --border:    #d1d3d4;
+    --surface:   #f1f2f2;
+    --bg:        #ffffff;
+    --col-left:  130px;
+  }
+
+  html { font-size: 10.5pt; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 52px;
+    line-height: 1.55;
+  }
+
+  /* HEADER */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    gap: 20px;
+  }
+
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 24pt;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .title-line {
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-top: 5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .contact a { color: var(--secondary); text-decoration: underline; }
+  .contact a[href^="tel:"] { white-space: nowrap; }
+
+  /* SECTION */
+  .section {
+    display: grid;
+    grid-template-columns: var(--col-left) 1fr;
+    gap: 0 24px;
+    margin-bottom: 20px;
+  }
+
+  .section-label {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    padding-top: 2px;
+    text-align: right;
+    padding-right: 16px;
+    border-right: 1px solid var(--border);
+  }
+
+  /* SUMMARY */
+  .summary-text {
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  /* SKILLS */
+  .skills-group { margin-bottom: 10px; }
+  .skills-group:last-child { margin-bottom: 0; }
+
+  .skills-group-label {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 5px;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 7px;
+  }
+
+  .skill-tag {
+    font-size: 7.5pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    font-weight: 400;
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 18px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .job-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .job-dates {
+    font-size: 8pt;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .job-org {
+    font-size: 8pt;
+    color: var(--charcoal);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  ul { padding-left: 0; list-style: none; }
+
+  li {
+    font-size: 9.5pt;
+    color: var(--text);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.5;
+  }
+
+  li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--border);
+  }
+
+  li strong { font-weight: 600; }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 9px; }
+
+  .edu-degree {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+  }
+
+  .edu-school {
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .edu-note {
+    font-size: 8pt;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* PRINT */
+  @media print {
+    @page { margin: 0; size: letter; }
+
+    html { font-size: 9.5pt; }
+
+    body {
+      max-width: 100%;
+      padding: 18mm 18mm 18mm 18mm;
+      background: white;
+    }
+
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 18px;
+    }
+
+    .section {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 0;
+      margin-bottom: 14px;
+    }
+
+    .section-label {
+      display: table-cell;
+      width: 130px;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      padding-top: 2px;
+      padding-right: 14px;
+      text-align: right;
+      border-right: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .section-body {
+      display: table-cell;
+      padding-left: 24px;
+      vertical-align: top;
+    }
+
+    .job {
+      display: table;
+      width: 100%;
+      margin-bottom: 12px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .job-header { display: block; margin-bottom: 1px; }
+    .job-title  { display: inline; font-size: 10.5pt; margin-right: 6px; }
+    .job-dates  { display: inline; font-size: 7.5pt; }
+
+    .job-org {
+      break-after: avoid;
+      page-break-after: avoid;
+      margin-bottom: 4px;
+    }
+
+    .job ul {
+      break-before: avoid;
+      page-break-before: avoid;
+    }
+
+    .skills-grid { display: block; }
+    .skill-tag   { display: inline-block; margin: 2px 4px 2px 0; }
+
+    .edu-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Céline Nadeau</h1>
+    <div class="title-line">Web Producer &amp; Digital Experience Manager</div>
+  </div>
+  <div class="contact">
+    <a href="mailto:nadecel@gmail.com">nadecel@gmail.com</a> · <a href="tel:+14155779113">415.577.9113</a><br>
+    2680 21st Street, San Francisco CA 94110<br>
+    <a href="https://www.linkedin.com/in/celinenadeau" target="_blank" rel="noopener noreferrer">linkedin.com/in/celinenadeau</a>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="section">
+  <div class="section-label">Profile</div>
+  <div class="section-body">
+    <p class="summary-text">Web producer and digital strategist with twenty years stewarding complex Drupal ecosystems for San Francisco's most mission-driven institutions — from investigative journalism to open-access science to enterprise marketing. MBA in Marketing. Deeply fluent in accessibility, SEO, UX, and content governance; equally at home in a code editor and a stakeholder meeting. The rarest combination in this work: someone who can build it, measure it, and explain why it matters. French-born, lifelong music lover. Proud SF resident since 1998.</p>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="section-label">Core Skills</div>
+  <div class="section-body">
+    <div class="skills-group">
+      <div class="skills-group-label">Web Development &amp; Production</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Drupal CMS (v6–v10)</span>
+        <span class="skill-tag">HTML / CSS / JavaScript</span>
+        <span class="skill-tag">WCAG Accessibility</span>
+        <span class="skill-tag">SEO / SEM</span>
+        <span class="skill-tag">Google Analytics (GA4)</span>
+        <span class="skill-tag">WordPress</span>
+        <span class="skill-tag">AEM (Adobe Experience Manager)</span>
+        <span class="skill-tag">Performance Optimization</span>
+        <span class="skill-tag">Responsive Web Design</span>
+        <span class="skill-tag">Tag Management &amp; Conversion Tracking</span>
+        <span class="skill-tag">Web Security &amp; QA</span>
+        <span class="skill-tag">Email HTML</span>
+        <span class="skill-tag">A/B Testing &amp; User Testing</span>
+        <span class="skill-tag">Adobe Creative Suite / Photoshop</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-label">Strategy, Governance &amp; Operations</div>
+      <div class="skills-grid">
+        <span class="skill-tag">UX &amp; Information Architecture</span>
+        <span class="skill-tag">Content Governance &amp; Brand Standards</span>
+        <span class="skill-tag">Digital Strategy</span>
+        <span class="skill-tag">Agency Liaison &amp; Project Management</span>
+        <span class="skill-tag">Web Data Privacy &amp; CCPA / GDPR Compliance</span>
+        <span class="skill-tag">Stakeholder Enablement &amp; Training</span>
+        <span class="skill-tag">Salesforce CRM</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <div class="section-label">Experience</div>
+  <div class="section-body">
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Lead Web Experience Manager</span>
+        <span class="job-dates">2014 – 2022</span>
+      </div>
+      <div class="job-org">Salesforce · San Francisco, CA</div>
+      <ul>
+        <li>Served as the <strong>sole web producer</strong> for Sales Cloud + Service Cloud marketing — a <strong>1:300 producer-to-stakeholder ratio</strong> across Product, Content, and Campaigns teams, maintaining 100% brand standards and WCAG accessibility compliance across two of Salesforce's highest-revenue product clouds.</li>
+        <li>Led <strong>digital operations, UX strategy, and content governance</strong> across Salesforce.com; managed ongoing <strong>AEM content publishing workflows</strong> and <strong>tag management and conversion tracking</strong> for demand generation campaigns.</li>
+        <li>Rebuilt the Desk.com product website on <strong>Drupal 8</strong> — fully responsive, on-brand, and WCAG-compliant — as part of a lean M&amp;A integration team; maintained OCMS product pages on salesforce.com.</li>
+        <li>Drove <strong>SEO, performance optimization, and site security QA</strong> across all managed properties — treating compliance as a baseline, not a checkbox.</li>
+        <li>Led <strong>UX optimization and user testing</strong> for forms and demo flows (2019–2020), improving conversion metrics through analytics-driven iteration; acted as institutional lead for <strong>web data privacy and CCPA compliance</strong>.</li>
+        <li>Core technical contributor to <strong>Blog, Design Systems, and Accessibility programs</strong> (2016–2018); supervised and trained junior web producers and student assistants in digital best practices.</li>
+        <li>Managed agency relationships, project scoping, and technical feasibility review in collaboration with IT and Marketing stakeholders.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Web Producer &amp; Online Communications Manager</span>
+        <span class="job-dates">2013 – 2014</span>
+      </div>
+      <div class="job-org">Pesticide Action Network (PAN) · Oakland, CA</div>
+      <ul>
+        <li>Managed and developed <strong>panna.org and sister Drupal sites</strong>; maintained IA, accessibility, and content quality across a mission-critical advocacy platform.</li>
+        <li>Ran online email campaigns via Salsa CRM; tracked and reported on performance using <strong>Google Analytics</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Front-End Web Developer</span>
+        <span class="job-dates">2008 – 2012</span>
+      </div>
+      <div class="job-org">Mother Jones Magazine · San Francisco, CA</div>
+      <ul>
+        <li>Acted as visual web designer and front-end developer for motherjones.com — <strong>Drupal implementation</strong>, front-end feature development, and weekly site maintenance.</li>
+        <li>Led design and development of editorial microsites; contributed to <strong>Social Media Strategy and SEO</strong> in collaboration with editors.</li>
+        <li>Optimized delegated publishing workflows and front-end performance across a high-traffic news platform.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Web &amp; Multimedia Producer</span>
+        <span class="job-dates">2007 – 2008</span>
+      </div>
+      <div class="job-org">UCSF – Clinical &amp; Translational Science Institute · San Francisco, CA</div>
+      <ul>
+        <li>Led information architecture and <strong>designed and built the first CTSI Drupal site</strong> (NIH-sponsored initiative); collaborated with PHP developers on UC systems integration.</li>
+        <li>Produced Clinical Research Centers online resources; managed newsletter design and secondary site elements.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Web Producer</span>
+        <span class="job-dates">2006 – 2007</span>
+      </div>
+      <div class="job-org">Public Library of Science (PLoS) · San Francisco, CA</div>
+      <ul>
+        <li>Managed weekly publication of <strong>five open-access scientific journals</strong>; supervised a team of two web production assistants.</li>
+        <li>Defined guidelines for <strong>web style, accessibility, and coding standards</strong>; redesigned homepage and subpages.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Web Production Associate</span>
+        <span class="job-dates">2005 – 2006</span>
+      </div>
+      <div class="job-org">TechSoup Global · San Francisco, CA</div>
+      <ul>
+        <li>Led QA for a major <strong>CMS migration</strong>; authored accessibility validation guidelines and created the CMS user manual; trained editorial staff.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Sales Operations Manager</span>
+        <span class="job-dates">1999 – 2004</span>
+      </div>
+      <div class="job-org">Totality (acq. by Verizon) &amp; Epicentric (acq. by Vignette) · San Francisco, CA</div>
+      <ul>
+        <li>Administered CRM systems (Salesforce.com, Goldmine) for 50–60-person sales organizations; owned reporting, forecasting, and cross-departmental operations — foundation for the analytical and stakeholder management skills applied throughout web career.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <div class="section-label">Education</div>
+  <div class="section-body">
+    <div class="edu-item">
+      <div class="edu-degree">MBA in Marketing</div>
+      <div class="edu-school">Nicholls State University · Thibodaux, LA · 1996–1997</div>
+      <div class="edu-note">Competitive scholarship recipient, Paris Dauphine University</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">BS in Law &amp; Marketing</div>
+      <div class="edu-school">Paris-IX Dauphine · Paris, France · 1994–1996</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Continuing Education</div>
+      <div class="edu-school">CCSF Certificate, Multimedia Production · Workshops: Google Analytics, AdWords, Drupal, WordPress, Adobe Suite</div>
+    </div>
+  </div>
+</div>
+
+<!-- ADDITIONAL -->
+<div class="section">
+  <div class="section-label">Additional</div>
+  <div class="section-body">
+    <ul>
+      <li><strong>Languages:</strong> English (fluent), French (native)</li>
+      <li><strong>Songwriter &amp; AI music producer</strong> — 200+ original lyrics; <strong>1,982 released tracks · 854,515 plays</strong> on SoundCloud (soundcloud.com/bananasutra). Works at the intersection of human creativity and AI-driven music production — a perspective that directly informs UX work privileging both technical precision and emotional engagement.</li>
+      <li><strong>Python / Streamlit developer &amp; digital culture writer</strong> — active civic technology projects; Substack publication on technology, politics, and digital ethics</li>
+      <li><strong>Volunteer, Muttville Senior Dog Rescue</strong> (2010–2012) — redesigned mobile email newsletter; built fundraiser website; produced award-winning presentation earning $5,000 for the organization</li>
+      <li><strong>Salesforce Ranger / Trailblazer</strong> — advanced CRM administration and reporting</li>
+      <li>Dual citizen, France &amp; United States · San Francisco resident since 1998</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

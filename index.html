@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!-- Hub page: all document links and iframe src values are same-folder relative paths; update them together if you rename the three application HTML files. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Céline Nadeau — SFCM Web Producer Application</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #9c2140;
+      --secondary: #1e4a72;
+      --charcoal:  #3a3a3a;
+      --text:      #111;
+      --muted:     #5c5c5c;
+      --border:    #d1d3d4;
+      --surface:   #f1f2f2;
+      --bg:        #ffffff;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--secondary); }
+    a:hover { color: var(--primary); }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      padding: 12px 16px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .skip:focus { left: 12px; top: 12px; }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+    }
+
+    h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(1.65rem, 4vw, 2.1rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 42em;
+    }
+
+    .contact {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact a { text-decoration: underline; }
+
+    .toc-nav {
+      margin-bottom: 40px;
+    }
+
+    .toc-nav h2 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .toc-nav ul { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .toc-nav a {
+      display: block;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-nav a:hover,
+    .toc-nav a:focus {
+      border-color: var(--primary);
+      color: var(--primary);
+      outline: none;
+    }
+
+    .toc-nav a span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    section h2 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .section-lead {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 40em;
+    }
+
+    .preview-block {
+      margin-bottom: 48px;
+    }
+
+    .preview-block h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .preview-frame-wrap {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .preview-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      min-height: 520px;
+      height: 70vh;
+      border: 0;
+      background: #fff;
+    }
+
+    .open-full {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    @media print {
+      .preview-block { display: none; }
+      .toc-nav ul { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="wrap">
+    <header>
+      <h1>Céline Nadeau</h1>
+      <p class="subtitle">Application materials for the Web Producer role — San Francisco Conservatory of Music. Use the links below to open each document in a new browser tab so this hub stays open, or scroll for inline previews on this page.</p>
+      <p class="contact">
+        <a href="mailto:nadecel@gmail.com">nadecel@gmail.com</a>
+        ·
+        <a href="tel:+14155779113">415.577.9113</a>
+        ·
+        <a href="https://www.linkedin.com/in/celinenadeau" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile — opens in a new tab">LinkedIn</a>
+      </p>
+    </header>
+
+    <nav class="toc-nav" aria-label="Application documents">
+      <h2>Open documents</h2>
+      <ul>
+        <li>
+          <a href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Resume — opens in a new tab">
+            Resume
+            <span>Experience, skills, education</span>
+          </a>
+        </li>
+        <li>
+          <a href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Cover letter — opens in a new tab">
+            Cover letter
+            <span>Statement of interest for SFCM</span>
+          </a>
+        </li>
+        <li>
+          <a href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Digital audit — opens in a new tab">
+            Digital audit
+            <span>sfcm.edu case study &amp; recommendations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Preview on this page</h2>
+        <p class="section-lead">Each panel loads the same HTML files linked above (relative paths), so previews stay in sync when you update the source files.</p>
+
+        <div class="preview-block">
+          <h3 id="preview-resume">Resume</h3>
+          <div class="preview-frame-wrap">
+            <iframe title="Resume — full document" src="sfcm_resume_celine-nadeau-march26.html" loading="lazy"></iframe>
+          </div>
+          <a class="open-full" href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open resume in full window — new tab">Open resume in new tab</a>
+        </div>
+
+        <div class="preview-block">
+          <h3 id="preview-cover">Cover letter</h3>
+          <div class="preview-frame-wrap">
+            <iframe title="Cover letter — full document" src="sfcm_cover_letter_celine-nadeau-march26.html" loading="lazy"></iframe>
+          </div>
+          <a class="open-full" href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open cover letter in full window — new tab">Open cover letter in new tab</a>
+        </div>
+
+        <div class="preview-block">
+          <h3 id="preview-audit">Digital audit</h3>
+          <div class="preview-frame-wrap">
+            <iframe title="Digital audit — full document" src="sfcm_DigitalAudit_CelineNadeau_march26.html" loading="lazy"></iframe>
+          </div>
+          <a class="open-full" href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open digital audit in full window — new tab">Open digital audit in new tab</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
