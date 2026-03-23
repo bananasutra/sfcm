@@ -88,6 +88,14 @@
 
   .cover-meta span strong { color: var(--text); font-weight: 600; }
 
+  .pdf-download {
+    margin-top: 12px;
+    font-size: 8.5pt;
+    font-weight: 600;
+  }
+
+  .pdf-download a { color: var(--secondary); text-decoration: underline; }
+
   /* ── SECTION HEADERS ── */
   h2 {
     font-family: 'Libre Baskerville', serif;
@@ -422,6 +430,8 @@
       page-break-inside: avoid;
       margin-bottom: 18px;
     }
+
+    .pdf-download { display: none; }
   }
 </style>
 </head>
@@ -437,6 +447,7 @@
     <span><strong>Date:</strong> March 2026</span>
     <span><strong>Scope:</strong> sfcm.edu (Drupal 10 · Kanopi Studios · public-facing)</span>
   </div>
+  <p class="pdf-download"><a href="pdf/CelineNadeau-Digital-Audit-SFCM-March26.pdf" download="CelineNadeau-Digital-Audit-SFCM-March26.pdf">Download PDF</a></p>
 </div>
 
 <!-- TABLE OF CONTENTS -->

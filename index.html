@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Hub page: all document links and iframe src values are same-folder relative paths; update them together if you rename the three application HTML files. -->
+<!-- Hub page: HTML href/src use same-folder relative paths; PDFs use pdf/*.pdf — keep names in sync if you rename files. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -107,12 +107,16 @@
       .toc-nav ul { grid-template-columns: repeat(3, 1fr); }
     }
 
-    .toc-nav a {
-      display: block;
-      padding: 14px 18px;
+    .toc-card {
       border: 1px solid var(--border);
       border-radius: 4px;
       background: var(--surface);
+      overflow: hidden;
+    }
+
+    .toc-nav-main {
+      display: block;
+      padding: 14px 18px;
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
@@ -120,19 +124,50 @@
       transition: border-color 0.15s ease, color 0.15s ease;
     }
 
-    .toc-nav a:hover,
-    .toc-nav a:focus {
-      border-color: var(--primary);
+    .toc-nav-main:hover,
+    .toc-nav-main:focus {
       color: var(--primary);
       outline: none;
     }
 
-    .toc-nav a span {
+    .toc-nav-main span {
       display: block;
       font-weight: 400;
       font-size: 0.8rem;
       color: var(--muted);
       margin-top: 4px;
+    }
+
+    .toc-nav-pdf {
+      display: block;
+      padding: 8px 18px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--secondary);
+      text-decoration: none;
+      border-top: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .toc-nav-pdf:hover,
+    .toc-nav-pdf:focus {
+      color: var(--primary);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .preview-actions {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .preview-actions a { text-decoration: underline; }
+
+    .preview-actions-sep {
+      color: var(--muted);
+      font-weight: 400;
+      margin: 0 0.35em;
     }
 
     section h2 {
@@ -178,16 +213,12 @@
       background: #fff;
     }
 
-    .open-full {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
     @media print {
       .preview-block { display: none; }
       .toc-nav ul { grid-template-columns: 1fr; }
+    .toc-nav-pdf { display: none; }
+    .preview-actions a[download] { display: none; }
+    .preview-actions-sep { display: none; }
     }
   </style>
 </head>
@@ -196,7 +227,7 @@
   <div class="wrap">
     <header>
       <h1>Céline Nadeau</h1>
-      <p class="subtitle">Application materials for the Web Producer role — San Francisco Conservatory of Music. Use the links below to open each document in a new browser tab so this hub stays open, or scroll for inline previews on this page.</p>
+      <p class="subtitle">Application materials for the Web Producer role — San Francisco Conservatory of Music. Open each document in a new tab, download PDFs from the cards below, or scroll for inline previews on this page.</p>
       <p class="contact">
         <a href="mailto:nadecel@gmail.com">nadecel@gmail.com</a>
         ·
@@ -210,22 +241,31 @@
       <h2>Open documents</h2>
       <ul>
         <li>
-          <a href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Resume — opens in a new tab">
-            Resume
-            <span>Experience, skills, education</span>
-          </a>
+          <div class="toc-card">
+            <a class="toc-nav-main" href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Resume — opens in a new tab">
+              Resume
+              <span>Experience, skills, education</span>
+            </a>
+            <a class="toc-nav-pdf" href="pdf/CelineNadeau-Resume-SFCM-WebProducer.pdf" download="CelineNadeau-Resume-SFCM-WebProducer.pdf">Download PDF</a>
+          </div>
         </li>
         <li>
-          <a href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Cover letter — opens in a new tab">
-            Cover letter
-            <span>Statement of interest for SFCM</span>
-          </a>
+          <div class="toc-card">
+            <a class="toc-nav-main" href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Cover letter — opens in a new tab">
+              Cover letter
+              <span>Statement of interest for SFCM</span>
+            </a>
+            <a class="toc-nav-pdf" href="pdf/CelineNadeau-CoverLetter-SFCM-WebProducer.pdf" download="CelineNadeau-CoverLetter-SFCM-WebProducer.pdf">Download PDF</a>
+          </div>
         </li>
         <li>
-          <a href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Digital audit — opens in a new tab">
-            Digital audit
-            <span>sfcm.edu case study &amp; recommendations</span>
-          </a>
+          <div class="toc-card">
+            <a class="toc-nav-main" href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Digital audit — opens in a new tab">
+              Digital audit
+              <span>sfcm.edu case study &amp; recommendations</span>
+            </a>
+            <a class="toc-nav-pdf" href="pdf/CelineNadeau-Digital-Audit-SFCM-March26.pdf" download="CelineNadeau-Digital-Audit-SFCM-March26.pdf">Download PDF</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -233,14 +273,18 @@
     <main id="main">
       <section aria-labelledby="preview-heading">
         <h2 id="preview-heading">Preview on this page</h2>
-        <p class="section-lead">Each panel loads the same HTML files linked above (relative paths), so previews stay in sync when you update the source files.</p>
+        <p class="section-lead">Each panel loads the same HTML files linked above (relative paths), so previews stay in sync when you update the source files. PDF versions are in the pdf folder and match these three documents.</p>
 
         <div class="preview-block">
           <h3 id="preview-resume">Resume</h3>
           <div class="preview-frame-wrap">
             <iframe title="Resume — full document" src="sfcm_resume_celine-nadeau-march26.html" loading="lazy"></iframe>
           </div>
-          <a class="open-full" href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open resume in full window — new tab">Open resume in new tab</a>
+          <p class="preview-actions">
+            <a href="sfcm_resume_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open resume in full window — new tab">Open resume in new tab</a>
+            <span class="preview-actions-sep" aria-hidden="true">·</span>
+            <a href="pdf/CelineNadeau-Resume-SFCM-WebProducer.pdf" download="CelineNadeau-Resume-SFCM-WebProducer.pdf">Download PDF</a>
+          </p>
         </div>
 
         <div class="preview-block">
@@ -248,7 +292,11 @@
           <div class="preview-frame-wrap">
             <iframe title="Cover letter — full document" src="sfcm_cover_letter_celine-nadeau-march26.html" loading="lazy"></iframe>
           </div>
-          <a class="open-full" href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open cover letter in full window — new tab">Open cover letter in new tab</a>
+          <p class="preview-actions">
+            <a href="sfcm_cover_letter_celine-nadeau-march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open cover letter in full window — new tab">Open cover letter in new tab</a>
+            <span class="preview-actions-sep" aria-hidden="true">·</span>
+            <a href="pdf/CelineNadeau-CoverLetter-SFCM-WebProducer.pdf" download="CelineNadeau-CoverLetter-SFCM-WebProducer.pdf">Download PDF</a>
+          </p>
         </div>
 
         <div class="preview-block">
@@ -256,7 +304,11 @@
           <div class="preview-frame-wrap">
             <iframe title="Digital audit — full document" src="sfcm_DigitalAudit_CelineNadeau_march26.html" loading="lazy"></iframe>
           </div>
-          <a class="open-full" href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open digital audit in full window — new tab">Open digital audit in new tab</a>
+          <p class="preview-actions">
+            <a href="sfcm_DigitalAudit_CelineNadeau_march26.html" target="_blank" rel="noopener noreferrer" aria-label="Open digital audit in full window — new tab">Open digital audit in new tab</a>
+            <span class="preview-actions-sep" aria-hidden="true">·</span>
+            <a href="pdf/CelineNadeau-Digital-Audit-SFCM-March26.pdf" download="CelineNadeau-Digital-Audit-SFCM-March26.pdf">Download PDF</a>
+          </p>
         </div>
       </section>
     </main>
