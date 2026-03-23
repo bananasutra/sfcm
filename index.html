@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <title>Céline Nadeau — SFCM Web Producer Application</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
@@ -74,6 +76,17 @@
       color: var(--muted);
       margin-top: 10px;
       max-width: 42em;
+    }
+
+    .job-ref {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      max-width: 42em;
+    }
+
+    .job-ref a {
+      font-weight: 600;
+      text-decoration: underline;
     }
 
     .contact {
@@ -216,9 +229,9 @@
     @media print {
       .preview-block { display: none; }
       .toc-nav ul { grid-template-columns: 1fr; }
-    .toc-nav-pdf { display: none; }
-    .preview-actions a[download] { display: none; }
-    .preview-actions-sep { display: none; }
+      .toc-nav-pdf { display: none; }
+      .preview-actions a[download] { display: none; }
+      .preview-actions-sep { display: none; }
     }
   </style>
 </head>
@@ -228,6 +241,9 @@
     <header>
       <h1>Céline Nadeau</h1>
       <p class="subtitle">Application materials for the Web Producer role — San Francisco Conservatory of Music. Open each document in a new tab, download PDFs from the cards below, or scroll for inline previews on this page.</p>
+      <p class="job-ref">
+        <a href="https://recruiting.paylocity.com/Recruiting/Jobs/Details/3985457" target="_blank" rel="noopener noreferrer" aria-label="Official SFCM Web Producer job posting on Paylocity — opens in a new tab">Official job posting: Web Producer — San Francisco Conservatory of Music</a>
+      </p>
       <p class="contact">
         <a href="mailto:nadecel@gmail.com">nadecel@gmail.com</a>
         ·
